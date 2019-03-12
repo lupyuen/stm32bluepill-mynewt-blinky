@@ -1,3 +1,7 @@
+# How to build and upload to Blue Pill
+
+See https://youtu.be/zc11f4ZinVw
+
 # How this sample was generated on macOS
 
 Based on https://mynewt.apache.org/latest/get_started/project_create.html:
