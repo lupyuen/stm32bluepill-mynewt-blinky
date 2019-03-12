@@ -1,3 +1,56 @@
+# How this sample was generated on macOS
+
+Based on https://mynewt.apache.org/latest/get_started/project_create.html:
+
+```
+brew install go
+brew tap JuulLabs-OSS/mynewt
+
+# Must install the main branch with bluepill support
+brew install mynewt-newt --HEAD
+
+# Should show 1.6.0-dev
+newt version
+
+brew install gcc
+brew tap PX4/homebrew-px4
+brew update
+brew install gcc-arm-none-eabi-49
+```
+
+Based on https://mynewt.apache.org/latest/tutorials/blinky/olimex.html:
+
+```
+newt new stm32bluepill-mynewt-blinky
+cd stm32bluepill-mynewt-blinky
+nano project.yml
+```
+
+Change
+```
+    vers: 1-latest
+```
+to
+```
+    vers: 0-dev
+```
+
+```
+newt install
+
+# Create bootloader
+newt target create boot_bluepill
+newt target set boot_bluepill build_profile=optimized
+newt target set boot_bluepill app=@apache-mynewt-core/apps/boot
+newt target set boot_bluepill bsp=@apache-mynewt-core/hw/bsp/bluepill
+
+# Create app
+newt target create bluepill_blinky
+newt target set bluepill_blinky build_profile=debug
+newt target set bluepill_blinky bsp=@apache-mynewt-core/hw/bsp/bluepill
+newt target set bluepill_blinky app=apps/blinky
+```
+
 <!--
 #
 # Licensed to the Apache Software Foundation (ASF) under one
