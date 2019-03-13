@@ -129,6 +129,14 @@ Version: 1.6.0-dev
 >>
  
 cd /mnt/c/mynewt
+newt new stm32bluepill-mynewt-blinky
+cd stm32bluepill-mynewt-blinky
+nano project.yml
+Change
+    vers: 1-latest
+to
+    vers: 0-dev
+
 newt install
 <<
 Downloading repository mynewt-nimble (commit: master) from https://github.com/apache/mynewt-nimble.git
